@@ -1,0 +1,46 @@
+﻿
+@model List<TaskWrapper>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Get to work buddy</h1>
+</div>
+
+<div>
+    <a asp-controller="ToDoTask" asp-action="Add">Add new task</a>
+</div>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Task</th>
+            <th>Date Set</th>
+            <th>Due Date</th>
+            <th>completed</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var t in Model){
+            <tr>
+        <td>@t.task</td>
+        <td>@t.RecievedTime</td>
+        <td>@t.DueDate</td>
+        <td>@t.IsCompleted</td>
+           
+    
+    <td>
+        <a asp.asp-controller="ToDoTask" asp-action="Edit" asp-route-id="@t.Id">Edit</a>
+    </td>
+
+    <td>
+        <a asp.asp-controller="ToDoTask" asp-action="Delete" asp-route-id="@t.Id">Delete</a>
+    </td>
+            </tr>
+        }
+     </tbody>   
+</table>
+
+

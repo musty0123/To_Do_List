@@ -32,12 +32,14 @@
            
     
     <td>
-        <a asp.asp-controller="ToDoTask" asp-action="Edit" asp-route-id="@t.Id">Edit</a>
+        <a asp-controller="ToDoTask" asp-action="Edit" asp-route-id="@t.Id">Edit</a>
     </td>
-
     <td>
-        <a asp.asp-controller="ToDoTask" asp-action="Delete" asp-route-id="@t.Id">Delete</a>
+                    <form asp-controller="ToDoTask" asp-action="Delete" asp-route-id="@t.Id" method="post">
+                        <button>delete</button>
+                    </form>
     </td>
+        
             </tr>
         }
      </tbody>   

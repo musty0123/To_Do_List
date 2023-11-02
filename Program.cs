@@ -1,11 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using To_Do_List.Data;
+using To_Do_List.Data.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ApplicationDbContext")));
+builder.Services.AddTransient<ITaskRepository, TaskRepository>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
